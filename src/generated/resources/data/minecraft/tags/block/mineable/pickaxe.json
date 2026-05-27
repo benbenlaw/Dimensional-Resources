@@ -1,0 +1,15 @@
+{
+  "values": [
+    "dimresources:dimensional_ore",
+    "dimresources:deepslate_dimensional_ore",
+    "dimresources:laser",
+    "dimresources:dimensional_stone",
+    "dimresources:dimensional_stone_stairs",
+    "dimresources:dimensional_stone_slab",
+    "dimresources:dimensional_stone_wall",
+    "dimresources:dimensional_stone_bricks",
+    "dimresources:dimensional_stone_brick_stairs",
+    "dimresources:dimensional_stone_brick_slab",
+    "dimresources:dimensional_stone_brick_wall"
+  ]
+}

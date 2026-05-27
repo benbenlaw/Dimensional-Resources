@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "dimresources:block/dimensional_stone",
+    "side": "dimresources:block/dimensional_stone",
+    "top": "dimresources:block/dimensional_stone"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "block.dimresources.deepslate_dimensional_ore": "Deepslate Dimensional Ore",
+  "block.dimresources.dimensional_ore": "Dimensional Ore",
+  "block.dimresources.dimensional_stone": "Dimensional Stone",
+  "block.dimresources.dimensional_stone_brick_slab": "Dimensional Stone Brick Slab",
+  "block.dimresources.dimensional_stone_brick_stairs": "Dimensional Stone Brick Stairs",
+  "block.dimresources.dimensional_stone_brick_wall": "Dimensional Stone Brick Wall",
+  "block.dimresources.dimensional_stone_bricks": "Dimensional Stone Bricks",
+  "block.dimresources.dimensional_stone_slab": "Dimensional Stone Slab",
+  "block.dimresources.dimensional_stone_stairs": "Dimensional Stone Stairs",
+  "block.dimresources.dimensional_stone_wall": "Dimensional Stone Wall",
+  "block.dimresources.laser": "Interdimensional Laser",
+  "item.dimresources.dimensional_shard": "Dimensional Shard",
+  "item.dimresources.planet_locator": "Planet Locator",
+  "itemGroup.dimresources": "Dimensional Resources",
+  "tooltip.dimresources.planet": "Planet: %s"
+}

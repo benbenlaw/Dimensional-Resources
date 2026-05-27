@@ -1,0 +1,4 @@
+// 26.1.2	2026-05-26T15:15:30.4092539	Registries
+279ee4ededebfcbe80d93f91f048c8e68280b3bc data/dimresources/neoforge/biome_modifier/add_overworld_dimensional_ore.json
+841d27c5f5f04338ed2de01a79a2b2f44697b041 data/dimresources/worldgen/configured_feature/overworld_dimensional_ore.json
+3408aaddb2504b129eba8fd77e851df61b4992c5 data/dimresources/worldgen/placed_feature/overworld_dimensional_ore_placed.json

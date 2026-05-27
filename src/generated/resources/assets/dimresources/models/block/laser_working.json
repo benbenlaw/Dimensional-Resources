@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "dimresources:block/laser_front_working",
+    "side": "dimresources:block/machine_side_working",
+    "top": "dimresources:block/machine_top"
+  }
+}

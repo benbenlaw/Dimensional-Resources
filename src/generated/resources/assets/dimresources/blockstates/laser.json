@@ -1,0 +1,48 @@
+{
+  "variants": {
+    "facing=down,running=false": {
+      "model": "dimresources:block/laser_vertical",
+      "x": 180
+    },
+    "facing=down,running=true": {
+      "model": "dimresources:block/laser_working_vertical",
+      "x": 180
+    },
+    "facing=east,running=false": {
+      "model": "dimresources:block/laser",
+      "y": 90
+    },
+    "facing=east,running=true": {
+      "model": "dimresources:block/laser_working",
+      "y": 90
+    },
+    "facing=north,running=false": {
+      "model": "dimresources:block/laser"
+    },
+    "facing=north,running=true": {
+      "model": "dimresources:block/laser_working"
+    },
+    "facing=south,running=false": {
+      "model": "dimresources:block/laser",
+      "y": 180
+    },
+    "facing=south,running=true": {
+      "model": "dimresources:block/laser_working",
+      "y": 180
+    },
+    "facing=up,running=false": {
+      "model": "dimresources:block/laser_vertical"
+    },
+    "facing=up,running=true": {
+      "model": "dimresources:block/laser_working_vertical"
+    },
+    "facing=west,running=false": {
+      "model": "dimresources:block/laser",
+      "y": 270
+    },
+    "facing=west,running=true": {
+      "model": "dimresources:block/laser_working",
+      "y": 270
+    }
+  }
+}

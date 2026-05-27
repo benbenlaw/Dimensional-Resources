@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "dimresources:block/dimensional_stone_brick_slab"
+    },
+    "type=double": {
+      "model": "dimresources:block/dimensional_stone_bricks"
+    },
+    "type=top": {
+      "model": "dimresources:block/dimensional_stone_brick_slab_top"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "type": "dimresources:laser",
+  "rf_per_tick": 10,
+  "duration": 100,
+  "laser_level": 2,
+  "planet": "dimresources:mars",
+  "outputs": [
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:iron_ingot"
+      },
+      "weight": 80
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:gold_ingot"
+      },
+      "weight": 15
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:diamond"
+      },
+      "weight": 5
+    }
+  ]
+}

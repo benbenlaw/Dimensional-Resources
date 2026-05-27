@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "dimresources:block/dimensional_ore"
+    }
+  }
+}
