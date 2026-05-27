@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "dimresources:dimensional_stone"
+        "recipe": "dimresources:dimensional_stone_brick_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "dimresources:dimensional_stone"
+      "dimresources:dimensional_stone_brick_stairs"
     ]
   }
 }

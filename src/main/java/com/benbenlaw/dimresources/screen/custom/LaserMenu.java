@@ -67,4 +67,17 @@ public class LaserMenu extends SimpleAbstractContainerMenu {
                 ? progress * progressArrowSize / maxProgress
                 : 0;
     }
+
+    public boolean hasEnergy() {
+        return data.get(13) > 14 ;
+    }
+
+    public int getEnergyFilled() {
+
+        int progress = this.data.get(13);
+        int maxProgress = this.data.get(14);  // Max Progress
+        int progressArrowSize = 52; // This is the height in pixels of your arrow
+
+        return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
+    }
 }

@@ -84,6 +84,8 @@ dependencies {
     implementation("curse.maven:ato-405593:7960942")
     implementation("curse.maven:allthemodium-364466:7972894")
     implementation("curse.maven:geckolib-388172:7913641")
+    //Guide Me
+    runtimeOnly("curse.maven:guideme-1173950:7929350")
 }
 
 tasks.withType(ProcessResources).configureEach {

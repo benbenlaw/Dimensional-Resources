@@ -71,15 +71,18 @@ public class LaserBlockEntityRenderer implements BlockEntityRenderer<LaserBlockE
 
             SkyObjectData sky = SkyObjectLoader.SKY_OBJECTS.get(targetId);
             if (sky == null) continue;
+            Vec3 skyDir = SkyObjectMath.direction(sky);
+
+            if (skyDir.y <= 0) {
+                continue;
+            }
 
             int c = sky.beamColor();
-
             float r = ((c >> 16) & 255) / 255f;
             float g = ((c >> 8) & 255) / 255f;
             float b = (c & 255) / 255f;
             float a = ((c >> 24) & 255) / 255f;
             float beamRadius = sky.beamRadius();
-            Vec3 skyDir = SkyObjectMath.direction(sky);
             Vec3 beamEndWorld = beamStartWorld.add(skyDir.scale(sky.distance() * 10));
             Vec3 beamStartRelCamera = beamStartWorld.subtract(camera);
             Vec3 end = beamEndWorld.subtract(camera);

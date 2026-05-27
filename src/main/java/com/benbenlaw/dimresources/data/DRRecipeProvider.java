@@ -66,10 +66,10 @@ public class DRRecipeProvider extends RecipeProvider {
         twoByTwoPacker(RecipeCategory.MISC, DRBlocks.DIMENSIONAL_STONE_BRICKS, DRBlocks.DIMENSIONAL_STONE);
         wall(RecipeCategory.MISC, DRBlocks.DIMENSIONAL_STONE_WALL, DRBlocks.DIMENSIONAL_STONE);
         wall(RecipeCategory.MISC, DRBlocks.DIMENSIONAL_STONE_BRICK_WALL, DRBlocks.DIMENSIONAL_STONE_BRICKS);
-        stairBuilder(DRBlocks.DIMENSIONAL_STONE_STAIRS, Ingredient.of(DRBlocks.DIMENSIONAL_STONE.get()));
-        stairBuilder(DRBlocks.DIMENSIONAL_STONE_BRICK_STAIRS, Ingredient.of(DRBlocks.DIMENSIONAL_STONE_BRICKS.get()));
-        slabBuilder(RecipeCategory.MISC, DRBlocks.DIMENSIONAL_STONE_SLAB, Ingredient.of(DRBlocks.DIMENSIONAL_STONE.get()));
-        slabBuilder(RecipeCategory.MISC, DRBlocks.DIMENSIONAL_STONE_BRICK_SLAB, Ingredient.of(DRBlocks.DIMENSIONAL_STONE_BRICKS.get()));
+        stairBuilder(DRBlocks.DIMENSIONAL_STONE_STAIRS, Ingredient.of(DRBlocks.DIMENSIONAL_STONE.get())).unlockedBy("has_shard", has(DRItems.DIMENSIONAL_SHARD.get())).save(output);
+        stairBuilder(DRBlocks.DIMENSIONAL_STONE_BRICK_STAIRS, Ingredient.of(DRBlocks.DIMENSIONAL_STONE_BRICKS.get())).unlockedBy("has_shard", has(DRItems.DIMENSIONAL_SHARD.get())).save(output);
+        slabBuilder(RecipeCategory.MISC, DRBlocks.DIMENSIONAL_STONE_SLAB, Ingredient.of(DRBlocks.DIMENSIONAL_STONE.get())).unlockedBy("has_shard", has(DRItems.DIMENSIONAL_SHARD.get())).save(output);
+        slabBuilder(RecipeCategory.MISC, DRBlocks.DIMENSIONAL_STONE_BRICK_SLAB, Ingredient.of(DRBlocks.DIMENSIONAL_STONE_BRICKS.get())).unlockedBy("has_shard", has(DRItems.DIMENSIONAL_SHARD.get())).save(output);
 
 
         //Tank
@@ -85,7 +85,7 @@ public class DRRecipeProvider extends RecipeProvider {
     }
 
     protected void twoByTwoPacker(RecipeCategory category, ItemLike result, ItemLike ingredient, String id) {
-        this.shaped(category, result, 1).define('#', ingredient).pattern("##").pattern("##").unlockedBy(getHasName(ingredient), this.has(ingredient)).save(output, DimResources.identifier(id).toString());
+        this.shaped(category, result, 1).define('#', ingredient).pattern("##").pattern("##").unlockedBy(getHasName(ingredient), this.has(ingredient)).save(this.output, DimResources.identifier(id).toString());
     }
 
 

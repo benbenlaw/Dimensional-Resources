@@ -1,9 +1,9 @@
 {
   "type": "dimresources:laser",
   "rf_per_tick": 10,
-    "duration": 200,
+  "duration": 100,
   "laser_level": 2,
-  "planet": "dimresources:earth",
+  "planet": "dimresources:earth2",
   "outputs": [
     {
       "stack": {

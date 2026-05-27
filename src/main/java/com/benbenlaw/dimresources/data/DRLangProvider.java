@@ -29,13 +29,19 @@ public class DRLangProvider extends LanguageProvider {
         addBlockTranslation("dimensional_stone_brick_slab", "Dimensional Stone Brick Slab");
         addBlockTranslation("dimensional_stone_brick_wall", "Dimensional Stone Brick Wall");
 
-
         //Item
         addItemTranslation("dimensional_shard", "Dimensional Shard");
         addItemTranslation("planet_locator", "Planet Locator");
 
         //Tooltip
         add("tooltip.dimresources.planet", "Planet: %s");
+
+        //Chat
+        add("chat.dimresources.discovered_planet", "Discovered Planet: %s");
+
+        //JEI
+        add("jei.dimensionalresources.laser", "Laser Mining");
+        add("jei.dimresource.weight", "Weight: %s%%");
 
 
     }

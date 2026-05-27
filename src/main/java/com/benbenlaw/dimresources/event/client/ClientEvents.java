@@ -21,6 +21,9 @@ import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import net.neoforged.neoforge.fluids.FluidStack;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 @EventBusSubscriber(modid = DimResources.MOD_ID, value = Dist.CLIENT)
 public class ClientEvents {
 
@@ -41,15 +44,27 @@ public class ClientEvents {
         if (stack.has(DRDataComponent.PLANET.get())) {
             Identifier planet = stack.get(DRDataComponent.PLANET.get());
 
+            String planetName = formatPlanetName(planet);
+
             if (Minecraft.getInstance().hasShiftDown()) {
-                event.getToolTip().add(Component.translatable("tooltip.dimresources.planet", planet.toString())
-                        .withStyle(ChatFormatting.BLUE));
+                event.getToolTip().add(
+                        Component.translatable("tooltip.dimresources.planet", planetName)
+                                .withStyle(ChatFormatting.BLUE)
+                );
 
             } else {
-                event.getToolTip().add(Component.translatable("tooltip.bblcore.shift")
-                        .withStyle(ChatFormatting.YELLOW));
+                event.getToolTip().add(
+                        Component.translatable("tooltip.bblcore.shift")
+                                .withStyle(ChatFormatting.YELLOW)
+                );
             }
         }
+    }
 
+    public static String formatPlanetName(Identifier id) {
+        String path = id.getPath();
+        return Arrays.stream(path.split("_"))
+                .map(word -> Character.toUpperCase(word.charAt(0)) + word.substring(1))
+                .collect(Collectors.joining(" "));
     }
 }

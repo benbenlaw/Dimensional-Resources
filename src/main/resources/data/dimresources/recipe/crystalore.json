@@ -1,0 +1,37 @@
+{
+  "type": "dimresources:laser",
+  "rf_per_tick": 3000,
+  "duration": 400,
+  "laser_level": 12,
+  "planet": "dimresources:crystalore",
+  "outputs": [
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:diamond"
+      },
+      "weight": 10
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:emerald"
+      },
+      "weight": 50
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:quartz"
+      },
+      "weight": 40
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:lapis_lazuli"
+      },
+      "weight": 40
+    }
+  ]
+}

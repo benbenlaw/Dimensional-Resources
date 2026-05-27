@@ -1,5 +1,6 @@
 package com.benbenlaw.dimresources.block;
 
+import com.benbenlaw.core.block.SyncableBlock;
 import com.benbenlaw.dimresources.DimResources;
 import com.benbenlaw.dimresources.block.custom.DimensionalOreBlock;
 import com.benbenlaw.dimresources.block.custom.LaserBlock;
@@ -36,6 +37,7 @@ public class DRBlocks {
             properties -> new LaserBlock(properties
                     .strength(4.5f, 3.0F)
                     .requiresCorrectToolForDrops()
+                    .lightLevel(state -> state.getValue(SyncableBlock.RUNNING) ? 15 : 0)
                     .noOcclusion()));
 
     public static final DeferredBlock<Block> DIMENSIONAL_STONE = registerBlock("dimensional_stone",

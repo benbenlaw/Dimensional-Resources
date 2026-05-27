@@ -10,8 +10,11 @@
   "block.dimresources.dimensional_stone_stairs": "Dimensional Stone Stairs",
   "block.dimresources.dimensional_stone_wall": "Dimensional Stone Wall",
   "block.dimresources.laser": "Interdimensional Laser",
+  "chat.dimresources.discovered_planet": "Discovered Planet: %s",
   "item.dimresources.dimensional_shard": "Dimensional Shard",
   "item.dimresources.planet_locator": "Planet Locator",
   "itemGroup.dimresources": "Dimensional Resources",
+  "jei.dimensionalresources.laser": "Laser Mining",
+  "jei.dimresource.weight": "Weight: %s%%",
   "tooltip.dimresources.planet": "Planet: %s"
 }

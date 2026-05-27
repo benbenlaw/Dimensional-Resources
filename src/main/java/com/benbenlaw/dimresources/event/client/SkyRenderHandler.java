@@ -16,6 +16,7 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.sprite.AtlasManager;
 import net.minecraft.data.AtlasIds;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -36,6 +37,10 @@ public class SkyRenderHandler {
     @SubscribeEvent
     public static void renderSky(RenderLevelStageEvent.AfterSky event) {
         Minecraft mc = Minecraft.getInstance();
+
+        Identifier dimension = mc.level.dimension().identifier();
+        if (dimension.equals(Level.OVERWORLD)) return;
+
         if (mc.level == null || SkyObjectLoader.SKY_OBJECTS.isEmpty()) return;
 
         PoseStack poseStack = event.getPoseStack();
