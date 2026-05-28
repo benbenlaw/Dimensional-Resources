@@ -322,7 +322,7 @@ public class LaserBlockEntity extends SyncableBlockEntity implements MenuProvide
 
     @Override
     public @NotNull Component getDisplayName() {
-        return Component.translatable("block.dimresources.laser");
+        return Component.translatable("block.dimresources.laser").append(" Lvl - " + laserLevel);
     }
 
     @Override

@@ -6,6 +6,8 @@ import com.benbenlaw.dimresources.block.DRBlockEntities;
 import com.benbenlaw.dimresources.block.DRBlocks;
 import com.benbenlaw.dimresources.block.entity.renderer.LaserBlockEntityRenderer;
 import com.benbenlaw.dimresources.item.DRDataComponent;
+import com.benbenlaw.dimresources.loader.SkyObjectData;
+import com.benbenlaw.dimresources.loader.SkyObjectLoader;
 import com.benbenlaw.dimresources.screen.DRMenuTypes;
 import com.benbenlaw.dimresources.screen.custom.LaserScreen;
 import net.minecraft.ChatFormatting;
@@ -44,19 +46,14 @@ public class ClientEvents {
         if (stack.has(DRDataComponent.PLANET.get())) {
             Identifier planet = stack.get(DRDataComponent.PLANET.get());
 
+            assert planet != null;
             String planetName = formatPlanetName(planet);
 
             if (Minecraft.getInstance().hasShiftDown()) {
-                event.getToolTip().add(
-                        Component.translatable("tooltip.dimresources.planet", planetName)
-                                .withStyle(ChatFormatting.BLUE)
-                );
+                event.getToolTip().add(Component.translatable("tooltip.dimresources.planet", planetName).withStyle(ChatFormatting.BLUE));
 
             } else {
-                event.getToolTip().add(
-                        Component.translatable("tooltip.bblcore.shift")
-                                .withStyle(ChatFormatting.YELLOW)
-                );
+                event.getToolTip().add(Component.translatable("tooltip.bblcore.shift").withStyle(ChatFormatting.YELLOW));
             }
         }
     }

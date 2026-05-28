@@ -1,0 +1,37 @@
+{
+  "type": "dimresources:laser",
+  "rf_per_tick": 3200,
+  "duration": 200,
+  "laser_level": 8,
+  "planet": "dimresources:fractoria",
+  "outputs": [
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:stone"
+      },
+      "weight": 25
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:cobblestone"
+      },
+      "weight": 25
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:basalt"
+      },
+      "weight": 25
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:blackstone"
+      },
+      "weight": 25
+    }
+  ]
+}

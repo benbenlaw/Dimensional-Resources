@@ -22,6 +22,6 @@ public class SkyObjectLoader extends SimpleJsonResourceReloadListener<SkyObjectD
     protected void apply(Map<Identifier, SkyObjectData> identifierSkyObjectDataMap, ResourceManager resourceManager, ProfilerFiller profilerFiller) {
         SKY_OBJECTS.clear();
         SKY_OBJECTS.putAll(identifierSkyObjectDataMap);
-            System.out.println("Loaded " + SKY_OBJECTS.size() + " sky objects from JSON.");
+        System.out.println("Loaded " + SKY_OBJECTS.size() + " sky objects from JSON.");
     }
 }

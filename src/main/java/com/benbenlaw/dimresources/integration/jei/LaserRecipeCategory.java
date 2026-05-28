@@ -18,6 +18,7 @@ import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.gui.widgets.IRecipeExtrasBuilder;
 import mezz.jei.api.gui.widgets.IScrollGridWidget;
 import mezz.jei.api.helpers.IGuiHelper;
+import mezz.jei.api.recipe.ICraftingStationLookup;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.category.IRecipeCategory;
@@ -105,7 +106,6 @@ public class LaserRecipeCategory implements IRecipeCategory<LaserRecipe> {
         List<WeightedItemStack> items = recipe.output();
         int totalItems = items.size();
         int totalWeight = items.stream().mapToInt(WeightedItemStack::getWeight).sum();
-        System.out.println("Total Weight: " + totalWeight);
 
         for (int i = 0; i < totalItems; i++) {
             int displayIndex = Math.min(i, 4);
@@ -116,7 +116,6 @@ public class LaserRecipeCategory implements IRecipeCategory<LaserRecipe> {
             builder.addSlot(RecipeIngredientRole.OUTPUT, xPos, centerY)
                     .add(items.get(i).getStack())
                     .addRichTooltipCallback((slot, tooltip) -> {
-                        System.out.println(items.get(finalIndex).getWeight() );
                         float calculatedWeight = ((float) items.get(finalIndex).getWeight() / totalWeight) * 100;
                         tooltip.add(Component.translatable("jei.dimresource.weight", (int) calculatedWeight).withStyle(ChatFormatting.GOLD));
                     })
@@ -124,12 +123,16 @@ public class LaserRecipeCategory implements IRecipeCategory<LaserRecipe> {
         }
     }
 
+
+
     @Override
     public void getTooltip(ITooltipBuilder tooltip, LaserRecipe recipe, IRecipeSlotsView recipeSlotsView, double mouseX, double mouseY) {
         if (MouseUtil.isMouseAboveArea((int) mouseX, (int) mouseY, 19, 1, 0, 0, 28, 18)) {
             int duration = recipe.duration();
             String timeString = String.valueOf(duration);
             tooltip.add(Component.translatable("tooltip.core.ticks", timeString));
+            tooltip.add(Component.translatable("tooltip.dimresources.laser_level", recipe.laserLevel()));
+            tooltip.add(Component.translatable("tooltip.dimresources.rf_per_tick", recipe.rfPerTick()));
         }
     }
 

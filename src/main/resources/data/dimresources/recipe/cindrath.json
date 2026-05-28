@@ -1,0 +1,30 @@
+{
+  "type": "dimresources:laser",
+  "rf_per_tick": 3000,
+  "duration": 300,
+  "laser_level": 10,
+  "planet": "dimresources:cindrath",
+  "outputs": [
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:magma_block"
+      },
+      "weight": 9
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:red_sand"
+      },
+      "weight": 80
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:obsidian"
+      },
+      "weight": 1
+    }
+  ]
+}

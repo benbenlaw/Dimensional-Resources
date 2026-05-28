@@ -1,17 +1,16 @@
 package com.benbenlaw.dimresources.integration.jei;
 
 import com.benbenlaw.dimresources.DimResources;
+import com.benbenlaw.dimresources.block.DRBlocks;
 import com.benbenlaw.dimresources.event.ClientRecipeCache;
 import com.benbenlaw.dimresources.item.DRItems;
 import com.benbenlaw.dimresources.screen.custom.LaserScreen;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.gui.drawable.IDrawableStatic;
-import mezz.jei.api.registration.IGuiHandlerRegistration;
-import mezz.jei.api.registration.IRecipeCategoryRegistration;
-import mezz.jei.api.registration.IRecipeRegistration;
-import mezz.jei.api.registration.ISubtypeRegistration;
+import mezz.jei.api.registration.*;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.item.ItemStack;
 import org.jspecify.annotations.NonNull;
 
 @JeiPlugin
@@ -25,9 +24,19 @@ public class DRJEIPlugin implements IModPlugin {
     }
 
     @Override
+    public void registerIngredientAliases(IIngredientAliasRegistration registration) {
+        registration.addAlias(DRBlocks.LASER.toStack(), "Miner");
+    }
+
+    @Override
     public void registerItemSubtypes(ISubtypeRegistration registration) {
         registration.registerSubtypeInterpreter(DRItems.PLANET_LOCATOR.asItem(), new ItemSubtypeInterpreter());
 
+    }
+
+    @Override
+    public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
+        registration.addCraftingStation(LaserRecipeCategory.RECIPE_TYPE, new ItemStack(DRBlocks.LASER));
     }
 
     @Override

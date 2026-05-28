@@ -35,6 +35,8 @@ public class DRLangProvider extends LanguageProvider {
 
         //Tooltip
         add("tooltip.dimresources.planet", "Planet: %s");
+        add("tooltip.dimresources.laser_level", "Minium Laser Level: %s");
+        add("tooltip.dimresources.rf_per_tick", "RF Per Tick: %s");
 
         //Chat
         add("chat.dimresources.discovered_planet", "Discovered Planet: %s");
