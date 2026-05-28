@@ -23,7 +23,6 @@ import org.apache.logging.log4j.Logger;
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(DimResources.MOD_ID)
 public class DimResources {
-
     public static final String MOD_ID = "dimresources";
     private static final Logger LOGGER = LogManager.getLogger();
 
