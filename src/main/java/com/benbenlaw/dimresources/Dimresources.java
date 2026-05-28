@@ -27,7 +27,6 @@ public class DimResources {
     public static final String MOD_ID = "dimresources";
     private static final Logger LOGGER = LogManager.getLogger();
 
-
     public DimResources(IEventBus modEventBus) {
 
         DRBlocks.BLOCKS.register(modEventBus);
@@ -39,40 +38,10 @@ public class DimResources {
         DRRecipes.TYPES.register(modEventBus);
         DRDataComponent.COMPONENTS.register(modEventBus);
 
-
-        //StrainersFluids.FLUIDS.register(modEventBus);
-        //StrainersDataComponents.COMPONENTS.register(modEventBus);
-        //StrainersCreativeTab.CREATIVE_MODE_TABS.register(modEventBus);
-        //StrainersMenuTypes.MENUS.register(modEventBus);
-        //StrainersRecipes.SERIALIZER.register(modEventBus);
-        //StrainersRecipes.TYPES.register(modEventBus);
-        //StrainersLootConditions.LOOT_CONDITION_SERIALIZERS.register(modEventBus);
-        //StrainersLootModifiers.LOOT_MODIFIER_SERIALIZERS.register(modEventBus);
-
-
-
     }
-
-    /*
-    @EventBusSubscriber(modid = MOD_ID)
-    public static class ClientModEvents {
-
-        @SubscribeEvent
-        public static void registerRenderers(final EntityRenderersEvent.RegisterRenderers event) {
-            event.registerBlockEntityRenderer(StrainersBlockEntities.STRAINER_BLOCK_ENTITY.get(), StrainerBlockEntityRenderer::new);
-        }
-
-        @SubscribeEvent
-        public static void registerScreens(RegisterMenuScreensEvent event) {
-            event.register(StrainersMenuTypes.WOODEN_STRAINER_MENU.get(), StrainerScreen::new);
-        }
-    }
-
-     */
 
     public static Identifier identifier(String path) {
         return Identifier.fromNamespaceAndPath(MOD_ID, path);
     }
-
 }
 
