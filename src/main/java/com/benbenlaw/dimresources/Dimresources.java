@@ -19,7 +19,6 @@ import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(DimResources.MOD_ID)
 public class DimResources {
