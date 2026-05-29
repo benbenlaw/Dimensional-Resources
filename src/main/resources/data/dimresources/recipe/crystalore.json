@@ -31,7 +31,14 @@
         "count": 1,
         "id": "minecraft:lapis_lazuli"
       },
-      "weight": 40
+      "weight": 35
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:amethyst_shard"
+      },
+      "weight": 5
     }
   ]
 }

@@ -1,0 +1,11 @@
+{
+  "texture": "dimresources:submerged",
+  "beam_color": 1322109,
+  "beam_radius": 0.1,
+  "size": 10.0,
+  "distance": 500.0,
+  "rotation_x": 180.0,
+  "rotation_z": 45.0,
+  "speed_x": -0.1,
+  "speed_z": 0.01
+}

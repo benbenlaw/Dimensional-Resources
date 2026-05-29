@@ -5,6 +5,7 @@ import com.benbenlaw.dimresources.block.DRBlocks;
 import com.benbenlaw.dimresources.item.DRCreativeTab;
 import com.benbenlaw.dimresources.item.DRDataComponent;
 import com.benbenlaw.dimresources.item.DRItems;
+import com.benbenlaw.dimresources.network.DRMessages;
 import com.benbenlaw.dimresources.recipe.DRRecipes;
 import com.benbenlaw.dimresources.screen.DRMenuTypes;
 import net.minecraft.resources.Identifier;
@@ -36,6 +37,12 @@ public class DimResources {
         DRRecipes.SERIALIZER.register(modEventBus);
         DRRecipes.TYPES.register(modEventBus);
         DRDataComponent.COMPONENTS.register(modEventBus);
+
+        modEventBus.addListener(this::networkingSetup);
+    }
+
+    public void networkingSetup(RegisterPayloadHandlersEvent event) {
+        DRMessages.registerNetworking(event);
     }
 
     public static Identifier identifier(String path) {

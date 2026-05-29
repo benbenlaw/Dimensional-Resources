@@ -8,7 +8,7 @@ item_ids:
   - 'dimresources:deepslate_dimensional_ore'
   - 'dimresources:dimensional_ore'
   - 'dimresources:dimensional_shard'
-  - 'dimresources:spyglass'
+  - 'minecraft:spyglass'
 ---
 
 # Dimensional Resources Guide Book

@@ -1,0 +1,23 @@
+{
+  "type": "dimresources:laser",
+  "rf_per_tick": 2000,
+  "duration": 200,
+  "laser_level": 12,
+  "planet": "dimresources:submerged",
+  "outputs": [
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:sand"
+      },
+      "weight": 75
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:gravel"
+      },
+      "weight": 25
+    }
+  ]
+}

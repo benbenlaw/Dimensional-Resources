@@ -5,6 +5,7 @@ import com.benbenlaw.dimresources.item.DRItems;
 import com.benbenlaw.dimresources.item.PlanetLocatorItem;
 import com.benbenlaw.dimresources.loader.SkyObjectData;
 import com.benbenlaw.dimresources.loader.SkyObjectLoader;
+import com.benbenlaw.dimresources.network.packet.SyncPlanetLocatorStack;
 import com.benbenlaw.dimresources.util.SkyObjectMath;
 import com.sun.jna.platform.unix.solaris.LibKstat;
 import net.minecraft.client.Minecraft;
@@ -17,6 +18,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
+import net.neoforged.neoforge.client.network.ClientPacketDistributor;
 
 import java.util.Map;
 
@@ -61,6 +63,7 @@ public class SpyglassSkyIdentifier {
         if (foundId != null) {
             player.sendSystemMessage(Component.translatable("chat.dimresources.discovered_planet", ClientEvents.formatPlanetName(foundId)));
             stack.set(DRDataComponent.PLANET, foundId);
+            ClientPacketDistributor.sendToServer(new SyncPlanetLocatorStack(stack));
         }
     }
 }

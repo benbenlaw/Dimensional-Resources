@@ -1,0 +1,30 @@
+{
+  "type": "dimresources:laser",
+  "rf_per_tick": 2600,
+  "duration": 400,
+  "laser_level": 8,
+  "planet": "dimresources:asteroid",
+  "outputs": [
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:raw_iron"
+      },
+      "weight": 40
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:raw_copper"
+      },
+      "weight": 40
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:raw_gold"
+      },
+      "weight": 20
+    }
+  ]
+}
