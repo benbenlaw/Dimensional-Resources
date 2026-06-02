@@ -32,6 +32,16 @@ public class LaserBlockEntityRenderer implements BlockEntityRenderer<LaserBlockE
             .sortOnUpload().createRenderSetup()
     );
 
+    // a differnt option, if using change alpha to 0.0f
+    /*
+    private static final RenderType LASER_BEAM = RenderType.create("laser_beam",RenderSetup.builder(RenderPipelines.BEACON_BEAM_TRANSLUCENT)
+            .withTexture("Sampler0", Identifier.withDefaultNamespace("textures/entity/end_crystal/end_crystal_beam.png"))
+            .sortOnUpload().createRenderSetup()
+    );
+
+     */
+
+
     public LaserBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
     }
 
@@ -81,7 +91,7 @@ public class LaserBlockEntityRenderer implements BlockEntityRenderer<LaserBlockE
             float r = ((c >> 16) & 255) / 255f;
             float g = ((c >> 8) & 255) / 255f;
             float b = (c & 255) / 255f;
-            float a = ((c >> 24) & 255) / 255f;
+            float a = ((c >> 24) & 255) / 255f; //change me to 0.0f if using ender beam texture
             float beamRadius = sky.beamRadius();
             Vec3 beamEndWorld = beamStartWorld.add(skyDir.scale(sky.distance() * 10));
             Vec3 beamStartRelCamera = beamStartWorld.subtract(camera);
