@@ -142,7 +142,7 @@ public class LaserRecipeCategory implements IRecipeCategory<LaserRecipe> {
         List<IRecipeSlotDrawable> outputItems = recipeSlots.getSlots(RecipeIngredientRole.OUTPUT);
 
         if (outputItems.size() > 5) {
-            IScrollGridWidget triggersGrid = builder.addScrollGridWidget(outputItems, 2, 1);
+            IScrollGridWidget triggersGrid = builder.addScrollGridWidget(outputItems, 4, 1);
             triggersGrid.setPosition(47, 1);
         }
         builder.addAnimatedRecipeArrow(200).setPosition(21, 2);

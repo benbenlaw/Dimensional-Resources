@@ -1,6 +1,6 @@
 {
   "type": "dimresources:laser",
-  "rf_per_tick": 3200,
+  "rf_per_tick": 500,
   "duration": 200,
   "laser_level": 8,
   "planet": "dimresources:fractoria",

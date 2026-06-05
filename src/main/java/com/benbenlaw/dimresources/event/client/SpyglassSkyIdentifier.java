@@ -20,6 +20,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.network.ClientPacketDistributor;
 
+import javax.annotation.Nullable;
 import java.util.Map;
 
 @EventBusSubscriber(value = Dist.CLIENT)
@@ -31,39 +32,52 @@ public class SpyglassSkyIdentifier {
         Minecraft mc = Minecraft.getInstance();
         Player player = mc.player;
         if (player == null) return;
+
         ItemStack stack = player.getOffhandItem();
 
         if (!stack.is(DRItems.PLANET_LOCATOR)) return;
+
+        if (!player.isScoping()) return;
+
         if (stack.has(DRDataComponent.PLANET)) return;
 
-        if (!player.isScoping())
-            return;
+        Identifier foundId = getLookedAtPlanet(player);
+
+        if (foundId != null) {
+            player.sendSystemMessage(Component.translatable("chat.dimresources.discovered_planet", ClientEvents.formatPlanetName(foundId)));
+
+            stack.set(DRDataComponent.PLANET, foundId);
+
+            ClientPacketDistributor.sendToServer(
+                    new SyncPlanetLocatorStack(stack)
+            );
+        }
+    }
+
+    public static @Nullable Identifier getLookedAtPlanet(Player player) {
 
         Vec3 look = player.getLookAngle().normalize();
 
         Identifier foundId = null;
-        double bestDot = 0.0;
+        double bestAngle = 0.75;
 
         for (Map.Entry<Identifier, SkyObjectData> entry : SkyObjectLoader.SKY_OBJECTS.entrySet()) {
 
-            Identifier id = entry.getKey();
             SkyObjectData sky = entry.getValue();
-
             Vec3 dir = SkyObjectMath.direction(sky).normalize();
 
             double dot = look.dot(dir);
-            double threshold = 0.995;
 
-            if (dot > threshold && dot > bestDot) {
-                bestDot = dot;
-                foundId = id;
+            dot = Math.clamp(dot, -1.0, 1.0);
+
+            double angle = Math.toDegrees(Math.acos(dot));
+
+            if (angle < bestAngle) {
+                bestAngle = angle;
+                foundId = entry.getKey();
             }
         }
 
-        if (foundId != null) {
-            player.sendSystemMessage(Component.translatable("chat.dimresources.discovered_planet", ClientEvents.formatPlanetName(foundId)));
-            stack.set(DRDataComponent.PLANET, foundId);
-            ClientPacketDistributor.sendToServer(new SyncPlanetLocatorStack(stack));
-        }
+        return foundId;
     }
 }

@@ -12,19 +12,24 @@ import com.benbenlaw.dimresources.screen.DRMenuTypes;
 import com.benbenlaw.dimresources.screen.custom.LaserScreen;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.neoforged.neoforge.client.event.RenderGuiLayerEvent;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import net.neoforged.neoforge.fluids.FluidStack;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
+
+import static com.benbenlaw.dimresources.event.client.SpyglassSkyIdentifier.getLookedAtPlanet;
 
 @EventBusSubscriber(modid = DimResources.MOD_ID, value = Dist.CLIENT)
 public class ClientEvents {
@@ -64,4 +69,27 @@ public class ClientEvents {
                 .map(word -> Character.toUpperCase(word.charAt(0)) + word.substring(1))
                 .collect(Collectors.joining(" "));
     }
+
+    @SubscribeEvent
+    public static void renderOverlay(RenderGuiLayerEvent.Post event) {
+
+        Minecraft mc = Minecraft.getInstance();
+        if (mc.player == null) return;
+
+        if (!mc.player.isScoping()) return;
+
+        Identifier planet = getLookedAtPlanet(mc.player);
+        if (planet == null) return;
+
+        GuiGraphicsExtractor gui = event.getGuiGraphics();
+
+        gui.centeredText(
+                mc.font,
+                Component.literal(ClientEvents.formatPlanetName(planet)),
+                gui.guiWidth() / 2,
+                20,
+                0xFFFFFFFF
+        );
+    }
+
 }

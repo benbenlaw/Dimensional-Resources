@@ -10,21 +10,28 @@
         "count": 1,
         "id": "minecraft:raw_iron"
       },
-      "weight": 40
+      "weight": 35
     },
     {
       "stack": {
         "count": 1,
         "id": "minecraft:raw_copper"
       },
-      "weight": 40
+      "weight": 35
     },
     {
       "stack": {
         "count": 1,
         "id": "minecraft:raw_gold"
       },
-      "weight": 20
+      "weight": 15
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:redstone"
+      },
+      "weight": 15
     }
   ]
 }

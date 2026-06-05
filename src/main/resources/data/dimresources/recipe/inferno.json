@@ -1,16 +1,16 @@
 {
   "type": "dimresources:laser",
-  "rf_per_tick": 1000,
+  "rf_per_tick": 2600,
   "duration": 200,
   "laser_level": 12,
-  "planet": "dimresources:submerged",
+  "planet": "dimresources:inferno",
   "outputs": [
     {
       "stack": {
         "count": 1,
-        "id": "minecraft:sand"
+        "id": "minecraft:netherrack"
       },
-      "weight": 70
+      "weight": 50
     },
     {
       "stack": {
@@ -22,16 +22,23 @@
     {
       "stack": {
         "count": 1,
-        "id": "minecraft:prismarine_shard"
+        "id": "minecraft:raw_gold"
       },
-      "weight": 5
+      "weight": 19
     },
     {
       "stack": {
         "count": 1,
-        "id": "minecraft:prismarine_crystals"
+        "id": "minecraft:quartz"
       },
-      "weight": 5
+      "weight": 10
+    },
+    {
+      "stack": {
+        "count": 1,
+        "id": "minecraft:netherite_scrap"
+      },
+      "weight": 1
     }
   ]
 }

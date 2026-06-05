@@ -1,6 +1,6 @@
 {
   "type": "dimresources:laser",
-  "rf_per_tick": 3000,
+  "rf_per_tick": 1000,
   "duration": 300,
   "laser_level": 10,
   "planet": "dimresources:cindrath",
