@@ -1,6 +1,6 @@
-// 26.1.2	2026-05-27T09:50:07.3968971	Tags for minecraft:item mod id dimresources
-a2458014d8dae0526502fbbcc2ff98c2cef7d659 data/c/tags/item/c/ores/dimensional.json
+// 26.1.2	2026-07-09T14:34:26.8045433	Tags for minecraft:item mod id dimresources
 a2458014d8dae0526502fbbcc2ff98c2cef7d659 data/c/tags/item/ores.json
+a2458014d8dae0526502fbbcc2ff98c2cef7d659 data/c/tags/item/ores/dimensional.json
 af47deaa24dff6d23d8b343592c371351d0c1095 data/minecraft/tags/item/slabs.json
 089c6aa40cc8aa3b361c0a8c37a7484437575464 data/minecraft/tags/item/stairs.json
 94859a9b4e3282ee959025f9d7fd8b2a4c8df6a6 data/minecraft/tags/item/walls.json

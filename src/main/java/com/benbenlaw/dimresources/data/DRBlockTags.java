@@ -4,9 +4,12 @@ import com.benbenlaw.core.tag.CommonTags;
 import com.benbenlaw.dimresources.DimResources;
 import com.benbenlaw.dimresources.block.DRBlocks;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import org.jetbrains.annotations.NotNull;
@@ -22,7 +25,7 @@ public class DRBlockTags extends BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {
 
-        tag(CommonTags.getBlockTag("c", "ores/dimensional"))
+        tag(TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath("c", "ores/dimensional")))
                 .add(DRBlocks.DIMENSIONAL_ORE.get())
                 .add(DRBlocks.DEEPSLATE_DIMENSIONAL_ORE.get())
         ;
