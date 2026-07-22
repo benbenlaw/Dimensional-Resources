@@ -13,4 +13,5 @@ public class LaserBlockEntityRenderState extends BlockEntityRenderState {
     public Vec3 cameraPosition;
     public int laserLevel;
     public List<Identifier> targetSkyObjects = new ArrayList<>();
+    public Identifier dimension;
 }

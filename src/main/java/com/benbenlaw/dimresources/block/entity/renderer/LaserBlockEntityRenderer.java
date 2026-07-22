@@ -59,7 +59,9 @@ public class LaserBlockEntityRenderer implements BlockEntityRenderer<LaserBlockE
         state.cameraPosition = cameraPosition;
         state.laserLevel = blockEntity.laserLevel;
         state.targetSkyObjects = blockEntity.targetSkyObjects;
-
+        state.dimension = blockEntity.getLevel() != null
+                ? blockEntity.getLevel().dimension().identifier()
+                : null;
     }
 
     @Override
@@ -82,6 +84,9 @@ public class LaserBlockEntityRenderer implements BlockEntityRenderer<LaserBlockE
 
             SkyObjectData sky = SkyObjectLoader.SKY_OBJECTS.get(targetId);
             if (sky == null) continue;
+
+            if (renderState.dimension != null && !sky.isValidIn(renderState.dimension)) continue;
+
             Vec3 skyDir = SkyObjectMath.direction(sky);
 
             if (skyDir.y <= 0) {

@@ -142,6 +142,14 @@ public class LaserBlockEntity extends SyncableBlockEntity implements MenuProvide
                 SkyObjectData skyData = SkyObjectLoader.SKY_OBJECTS.get(planetId);
 
                 if (skyData != null) {
+                    Identifier dimension = level.dimension().identifier();
+
+                    if (!skyData.isValidIn(dimension)) {
+                        progress[i] = 0;
+                        pendingOutputs[i] = ItemStack.EMPTY;
+                        continue;
+                    }
+
                     Vec3 skyDir = SkyObjectMath.direction(skyData);
                     if (skyDir.y <= 0) {
                         progress[i] = 0;
@@ -258,12 +266,19 @@ public class LaserBlockEntity extends SyncableBlockEntity implements MenuProvide
     }
 
     private static int updateBase(Level level, int x, int y, int z) {
+        int down = scanDirection(level, x, y, z, -1);
+        if (down > 0) return down;
+
+        return scanDirection(level, x, y, z, 1);
+    }
+
+    private static int scanDirection(Level level, int x, int y, int z, int direction) {
         int levels = 0;
 
         for (int step = 1; step <= 12; step++) {
-            int ly = y - step;
+            int ly = y + (step * direction);
 
-            if (ly < level.getMinY()) break;
+            if (ly < level.getMinY() || ly > level.getMaxY()) break;
 
             boolean isOk = true;
 
@@ -295,7 +310,9 @@ public class LaserBlockEntity extends SyncableBlockEntity implements MenuProvide
                 }
             }
 
-            if (!isOk) break;
+            if (!isOk) {
+                break;
+            }
 
             levels++;
         }

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": "minecraft:iron_ingot",
+    "B": "minecraft:beacon",
+    "C": "minecraft:redstone",
+    "D": "dimresources:dimensional_shard",
+    "E": "minecraft:glass"
+  },
+  "pattern": [
+    "ABA",
+    "CDC",
+    "AEA"
+  ],
+  "result": {
+    "id": "dimresources:laser"
+  }
+}

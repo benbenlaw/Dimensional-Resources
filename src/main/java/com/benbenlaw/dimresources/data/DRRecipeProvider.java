@@ -43,6 +43,19 @@ public class DRRecipeProvider extends RecipeProvider {
     @Override
     protected void buildRecipes() {
 
+        //Interdimensional Laser
+        shaped(RecipeCategory.MISC, DRBlocks.LASER)
+                .pattern("ABA")
+                .pattern("CDC")
+                .pattern("AEA")
+                .define('A', Items.IRON_INGOT)
+                .define('B', Items.BEACON)
+                .define('C', Items.REDSTONE)
+                .define('D', DRItems.DIMENSIONAL_SHARD)
+                .define('E', Items.GLASS)
+                .unlockedBy("has_shard", has(DRItems.DIMENSIONAL_SHARD.get()))
+                .save(output);
+
         //Planet Locator
         shaped(RecipeCategory.MISC, DRItems.PLANET_LOCATOR)
                 .pattern(" B ")

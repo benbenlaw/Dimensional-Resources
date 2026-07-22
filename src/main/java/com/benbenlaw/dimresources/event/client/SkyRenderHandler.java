@@ -38,13 +38,10 @@ public class SkyRenderHandler {
     public static void renderSky(RenderLevelStageEvent.AfterSky event) {
         Minecraft mc = Minecraft.getInstance();
 
-        Identifier dimension = mc.level.dimension().identifier();
-        if (dimension.equals(Level.OVERWORLD)) return;
-
         if (mc.level == null || SkyObjectLoader.SKY_OBJECTS.isEmpty()) return;
 
+        Identifier dimension = mc.level.dimension().identifier();
         PoseStack poseStack = event.getPoseStack();
-        if (poseStack == null) return;
 
         float rainBrightness = mc.level.getRainLevel(1.0F);
         AtlasManager atlasManager = mc.getAtlasManager();
@@ -59,6 +56,8 @@ public class SkyRenderHandler {
         for (Map.Entry<Identifier, SkyObjectData> entry : SkyObjectLoader.SKY_OBJECTS.entrySet()) {
             Identifier id = entry.getKey();
             SkyObjectData sky = entry.getValue();
+
+            if (!sky.isValidIn(dimension)) continue;
 
             Vec3 skyObjectDirection = SkyObjectMath.direction(sky);
             float distance = sky.distance();

@@ -7,9 +7,12 @@ import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.Identifier;
 
+import java.util.List;
+
 public record SkyObjectData(Identifier texture, int beamColor, float beamRadius, float size, float distance,
                             float rotationX, float rotationZ,
-                            float speedX, float speedZ) {
+                            float speedX, float speedZ,
+                            List<Identifier> excludedDimensions) {
 
     public static final Codec<SkyObjectData> CODEC = RecordCodecBuilder.create(instance ->
             instance.group(
@@ -21,7 +24,8 @@ public record SkyObjectData(Identifier texture, int beamColor, float beamRadius,
                     Codec.FLOAT.fieldOf("rotation_x").forGetter(SkyObjectData::rotationX),
                     Codec.FLOAT.fieldOf("rotation_z").forGetter(SkyObjectData::rotationZ),
                     Codec.FLOAT.fieldOf("speed_x").forGetter(SkyObjectData::speedX),
-                    Codec.FLOAT.fieldOf("speed_z").forGetter(SkyObjectData::speedZ)
+                    Codec.FLOAT.fieldOf("speed_z").forGetter(SkyObjectData::speedZ),
+                    Identifier.CODEC.listOf().optionalFieldOf("excluded_dimensions", List.of()).forGetter(SkyObjectData::excludedDimensions)
             ).apply(instance, SkyObjectData::new)
     );
 
@@ -35,6 +39,11 @@ public record SkyObjectData(Identifier texture, int beamColor, float beamRadius,
             ByteBufCodecs.FLOAT, SkyObjectData::rotationZ,
             ByteBufCodecs.FLOAT, SkyObjectData::speedX,
             ByteBufCodecs.FLOAT, SkyObjectData::speedZ,
+            Identifier.STREAM_CODEC.apply(ByteBufCodecs.list()), SkyObjectData::excludedDimensions,
             SkyObjectData::new
     );
+
+    public boolean isValidIn(Identifier dimensionId) {
+        return !excludedDimensions.contains(dimensionId);
+    }
 }

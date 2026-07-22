@@ -1,4 +1,4 @@
-// 26.1.2	2026-05-27T18:26:52.1066981	dimresources Recipes
+// 26.1.2	2026-07-22T10:44:02.2249797	dimresources Recipes
 eb7ab572ed244318e68739c17943b853b369cfc7 data/dimresources/advancement/recipes/building_blocks/dimensional_stone_brick_stairs.json
 5769bfa08c751b72d74fc9ed945758482097dc42 data/dimresources/advancement/recipes/building_blocks/dimensional_stone_stairs.json
 abf1f03f19255dfc2b6ee3a6e44b64700c08f11f data/dimresources/advancement/recipes/misc/dimensional_stone.json
@@ -7,6 +7,7 @@ d9769fd41de343aaa557b7b7fe70251323b2f881 data/dimresources/advancement/recipes/m
 ce46b81e3480199c5360b9547eaabf848e0101ab data/dimresources/advancement/recipes/misc/dimensional_stone_brick_wall.json
 aad90b657f094920d9d970bc57caed0b317076b0 data/dimresources/advancement/recipes/misc/dimensional_stone_slab.json
 d047783088d0c50761277d3c9d01c5883366e786 data/dimresources/advancement/recipes/misc/dimensional_stone_wall.json
+8dc81103afbe269c335283e4006321b217e44fa7 data/dimresources/advancement/recipes/misc/laser.json
 66990a22809e223fe41e71e4e3ae99f449d21721 data/dimresources/advancement/recipes/misc/planet_locator.json
 0ff779b8babba69b1e0667d5b3cbeda01a46cc5f data/dimresources/recipe/dimensional_stone.json
 d7119888d07ea5bc31aab1520310c00eb26bfb13 data/dimresources/recipe/dimensional_stone_bricks.json
@@ -16,4 +17,5 @@ f69852b04f18e111dfa6f67c19b1f2acbbf02370 data/dimresources/recipe/dimensional_st
 640ea8303d5b7d7d5bd93bb6a119d9002a76e392 data/dimresources/recipe/dimensional_stone_slab.json
 e16c279313625b28d138ea1bde56f395483578e0 data/dimresources/recipe/dimensional_stone_stairs.json
 954f2e12bec5afe807deeb9b27499579d8bead82 data/dimresources/recipe/dimensional_stone_wall.json
+5ad4c3bdd531f165fdb564c06d8b38eed34b4908 data/dimresources/recipe/laser.json
 b86e7dd894e503665f387a9a228bec15096d8912 data/dimresources/recipe/planet_locator.json

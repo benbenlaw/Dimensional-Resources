@@ -7,5 +7,6 @@
   "rotation_x": -75.0,
   "rotation_z": 25.0,
   "speed_x": -0.02,
-  "speed_z": -0.02
+  "speed_z": -0.02,
+  "excluded_dimensions": ["minecraft:the_nether"]
 }
