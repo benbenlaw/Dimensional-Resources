@@ -23,6 +23,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RenderGuiLayerEvent;
+import net.neoforged.neoforge.client.gui.VanillaGuiLayers;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import net.neoforged.neoforge.fluids.FluidStack;
 
@@ -72,6 +73,8 @@ public class ClientEvents {
 
     @SubscribeEvent
     public static void renderOverlay(RenderGuiLayerEvent.Post event) {
+
+        if (!event.getName().equals(VanillaGuiLayers.CROSSHAIR)) return;
 
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == null) return;
