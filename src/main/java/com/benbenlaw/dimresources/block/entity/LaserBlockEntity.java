@@ -136,7 +136,6 @@ public class LaserBlockEntity extends SyncableBlockEntity implements MenuProvide
                 continue;
             }
 
-            // sky validation
             if (input.has(DRDataComponent.PLANET)) {
                 Identifier planetId = input.get(DRDataComponent.PLANET);
                 SkyObjectData skyData = SkyObjectLoader.SKY_OBJECTS.get(planetId);
@@ -170,14 +169,12 @@ public class LaserBlockEntity extends SyncableBlockEntity implements MenuProvide
 
             maxProgress[i] = recipe.duration();
 
-            // 🔒 LOCK OUTPUT ONCE
             if (progress[i] == 0 && pendingOutputs[i].isEmpty()) {
                 pendingOutputs[i] = recipe.rollOutput(level.getRandom());
             }
 
             ItemStack output = pendingOutputs[i];
 
-            // If output is locked and can't fit, stall before doing anything
             if (!output.isEmpty() && !canInsert(i, output)) {
                 continue;
             }
