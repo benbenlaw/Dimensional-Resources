@@ -59,7 +59,7 @@ public class SkyRenderHandler {
 
             if (!sky.isValidIn(dimension)) continue;
 
-            Vec3 skyObjectDirection = SkyObjectMath.direction(sky);
+            Vec3 skyObjectDirection = SkyObjectMath.direction(sky, mc.level.getGameTime());
             float distance = sky.distance();
             float size = sky.size();
 

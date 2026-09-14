@@ -1,23 +1,13 @@
 package com.benbenlaw.dimresources.util;
 
 import com.benbenlaw.dimresources.loader.SkyObjectData;
-import net.minecraft.client.DeltaTracker;
-import net.minecraft.client.Minecraft;
 import net.minecraft.world.phys.Vec3;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 
 public class SkyObjectMath {
 
-    public static Vec3 direction(SkyObjectData sky) {
-        Minecraft mc = Minecraft.getInstance();
-        float gameTime = 0.0f;
-
-        if (mc.level != null) {
-            DeltaTracker deltaTracker = mc.getDeltaTracker();
-            gameTime = (float) mc.level.getGameTime() + deltaTracker.getGameTimeDeltaTicks();
-        }
-
+    public static Vec3 direction(SkyObjectData sky, float gameTime) {
         float angleZ = (sky.rotationZ() + (sky.speedZ() * gameTime)) % 360.0f;
         float radZ = (float) Math.toRadians(angleZ);
 

@@ -62,8 +62,11 @@ public class LaserBlockEntityRenderer implements BlockEntityRenderer<LaserBlockE
         state.dimension = blockEntity.getLevel() != null
                 ? blockEntity.getLevel().dimension().identifier()
                 : null;
-    }
 
+        state.gameTime = blockEntity.getLevel() != null
+                ? (float) blockEntity.getLevel().getGameTime() + partialTicks
+                : 0.0f;
+    }
     @Override
     public void submit(LaserBlockEntityRenderState renderState, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, CameraRenderState cameraRenderState) {
 
@@ -87,7 +90,7 @@ public class LaserBlockEntityRenderer implements BlockEntityRenderer<LaserBlockE
 
             if (renderState.dimension != null && !sky.isValidIn(renderState.dimension)) continue;
 
-            Vec3 skyDir = SkyObjectMath.direction(sky);
+            Vec3 skyDir = SkyObjectMath.direction(sky, renderState.gameTime);
 
             if (skyDir.y <= 0) {
                 continue;

@@ -149,7 +149,7 @@ public class LaserBlockEntity extends SyncableBlockEntity implements MenuProvide
                         continue;
                     }
 
-                    Vec3 skyDir = SkyObjectMath.direction(skyData);
+                    Vec3 skyDir = SkyObjectMath.direction(skyData, level.getGameTime());
                     if (skyDir.y <= 0) {
                         progress[i] = 0;
                         pendingOutputs[i] = ItemStack.EMPTY;

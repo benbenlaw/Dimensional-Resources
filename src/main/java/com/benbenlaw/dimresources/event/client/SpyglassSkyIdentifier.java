@@ -65,7 +65,7 @@ public class SpyglassSkyIdentifier {
         for (Map.Entry<Identifier, SkyObjectData> entry : SkyObjectLoader.SKY_OBJECTS.entrySet()) {
 
             SkyObjectData sky = entry.getValue();
-            Vec3 dir = SkyObjectMath.direction(sky).normalize();
+            Vec3 dir = SkyObjectMath.direction(sky, player.level().getGameTime()).normalize();
 
             double dot = look.dot(dir);
 
