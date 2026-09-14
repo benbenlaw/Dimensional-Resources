@@ -3,6 +3,7 @@ package com.benbenlaw.dimresources.event;
 import com.benbenlaw.dimresources.DimResources;
 import com.benbenlaw.dimresources.block.DRBlockEntities;
 import com.benbenlaw.dimresources.loader.SkyObjectLoader;
+import com.benbenlaw.dimresources.network.packet.SyncSkyObjectsPayload;
 import com.benbenlaw.dimresources.recipe.DRRecipes;
 import com.benbenlaw.dimresources.recipe.custom.LaserRecipe;
 import net.minecraft.resources.Identifier;
@@ -15,6 +16,7 @@ import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.client.event.RecipesReceivedEvent;
 import net.neoforged.neoforge.event.AddServerReloadListenersEvent;
 import net.neoforged.neoforge.event.OnDatapackSyncEvent;
+import net.neoforged.neoforge.network.PacketDistributor;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -43,6 +45,13 @@ public class DREvents {
     @SubscribeEvent
     public static void onDataPackSync(OnDatapackSyncEvent event) {
         event.sendRecipes(DRRecipes.LASER_TYPE.get());
+
+        SyncSkyObjectsPayload payload = new SyncSkyObjectsPayload(SkyObjectLoader.SKY_OBJECTS);
+        if (event.getPlayer() != null) {
+            PacketDistributor.sendToPlayer(event.getPlayer(), payload);
+        } else {
+            PacketDistributor.sendToAllPlayers(payload);
+        }
     }
 
     @SubscribeEvent

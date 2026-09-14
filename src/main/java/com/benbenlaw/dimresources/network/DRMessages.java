@@ -2,6 +2,7 @@ package com.benbenlaw.dimresources.network;
 
 import com.benbenlaw.dimresources.DimResources;
 import com.benbenlaw.dimresources.network.packet.SyncPlanetLocatorValue;
+import com.benbenlaw.dimresources.network.packet.SyncSkyObjectsPayload;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 
@@ -12,6 +13,7 @@ public class DRMessages {
 
         //Client -> Server
         registrar.playToServer(SyncPlanetLocatorValue.TYPE, SyncPlanetLocatorValue.STREAM_CODEC, SyncPlanetLocatorValue.HANDLER);
+        registrar.playToClient(SyncSkyObjectsPayload.TYPE, SyncSkyObjectsPayload.STREAM_CODEC, SyncSkyObjectsPayload.HANDLER);
 
     }
 }
