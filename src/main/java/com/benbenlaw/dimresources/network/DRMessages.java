@@ -1,7 +1,7 @@
 package com.benbenlaw.dimresources.network;
 
 import com.benbenlaw.dimresources.DimResources;
-import com.benbenlaw.dimresources.network.packet.SyncPlanetLocatorStack;
+import com.benbenlaw.dimresources.network.packet.SyncPlanetLocatorValue;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 
@@ -11,7 +11,7 @@ public class DRMessages {
         final PayloadRegistrar registrar = event.registrar(DimResources.MOD_ID);
 
         //Client -> Server
-        registrar.playToServer(SyncPlanetLocatorStack.TYPE, SyncPlanetLocatorStack.STREAM_CODEC, SyncPlanetLocatorStack.HANDLER);
+        registrar.playToServer(SyncPlanetLocatorValue.TYPE, SyncPlanetLocatorValue.STREAM_CODEC, SyncPlanetLocatorValue.HANDLER);
 
     }
 }

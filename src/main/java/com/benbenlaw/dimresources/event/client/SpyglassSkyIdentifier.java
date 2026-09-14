@@ -5,7 +5,7 @@ import com.benbenlaw.dimresources.item.DRItems;
 import com.benbenlaw.dimresources.item.PlanetLocatorItem;
 import com.benbenlaw.dimresources.loader.SkyObjectData;
 import com.benbenlaw.dimresources.loader.SkyObjectLoader;
-import com.benbenlaw.dimresources.network.packet.SyncPlanetLocatorStack;
+import com.benbenlaw.dimresources.network.packet.SyncPlanetLocatorValue;
 import com.benbenlaw.dimresources.util.SkyObjectMath;
 import com.sun.jna.platform.unix.solaris.LibKstat;
 import net.minecraft.client.Minecraft;
@@ -48,9 +48,10 @@ public class SpyglassSkyIdentifier {
 
             stack.set(DRDataComponent.PLANET, foundId);
 
-            ClientPacketDistributor.sendToServer(
-                    new SyncPlanetLocatorStack(stack)
-            );
+            Identifier planet = stack.get(DRDataComponent.PLANET.get());
+            if (planet != null) {
+                ClientPacketDistributor.sendToServer(new SyncPlanetLocatorValue(planet));
+            }
         }
     }
 
